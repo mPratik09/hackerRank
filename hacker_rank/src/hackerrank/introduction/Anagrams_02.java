@@ -5,17 +5,18 @@ import java.util.Scanner;
 public class Anagrams_02
 {
 
+//	Function to check whether the string is anagram or not??
 	static boolean isAnagram(String a, String b)
 	{
 		char[] aCharArr = a.toLowerCase().toCharArray();
 		char[] bCharArr = b.toLowerCase().toCharArray();
 
-		// sorting String A alphabetically
+		// sort String A alphabetically
 		String aStr = new String(sortString(aCharArr));
-		// sorting String B alphabetically
+		// sort String B alphabetically
 		String bStr = new String(sortString(bCharArr));
 
-		// Comparing Strings lexicographically
+		// Comparing strings lexicographically for equality
 		if ((aStr.compareTo(bStr)) == 0)
 		{
 			return true;
@@ -26,6 +27,7 @@ public class Anagrams_02
 
 	}
 
+//	This function sorts the string alphabetically
 	public static char[] sortString(char[] arrToBeSort)
 	{
 		for (int i = 0; i < arrToBeSort.length - 1; i++)
@@ -50,7 +52,10 @@ public class Anagrams_02
 		String a = scan.next();
 		String b = scan.next();
 		scan.close();
+
 		boolean ret = isAnagram(a, b);
+
 		System.out.println((ret) ? "Anagrams" : "Not Anagrams");
 	}
+
 }
