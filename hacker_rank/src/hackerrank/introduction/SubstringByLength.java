@@ -2,7 +2,7 @@ package hackerrank.introduction;
 
 import java.util.Scanner;
 
-public class JavaString_02
+public class SubstringByLength
 {
 	public static void main(String[] args)
 	{
@@ -14,14 +14,21 @@ public class JavaString_02
 		int startIdx = sc.nextInt();
 		int endIdx = sc.nextInt();
 
-		String substring = substringWithLength(str, startIdx, endIdx);
+		System.out.println(substringWithLength(str, startIdx, endIdx));
 
-		System.out.println(substring);
 		sc.close();
 	}
 
 	public static String substringWithLength(String str, int startIdx, int len)
 	{
+		if (str == null || str.isEmpty())
+		{
+			throw new IllegalArgumentException("Input string cannot be null.");
+		} else if ((startIdx < 0) || (startIdx >= str.length()))
+		{
+			throw new StringIndexOutOfBoundsException("Invalid inputs for start index and end index.");
+		}
+
 		int endIdx = Math.min(startIdx + len, str.length());
 
 		return str.substring(startIdx, endIdx);
