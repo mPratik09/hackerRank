@@ -21,15 +21,14 @@ public class SubstringByLength
 
 	public static String substringWithLength(String str, int startIdx, int len)
 	{
-		if (str == null || str.isEmpty())
+		int endIdx = Math.min(startIdx + len, str.length());
+		if (str == null || str.trim().isEmpty())
 		{
 			throw new IllegalArgumentException("Input string cannot be null.");
-		} else if ((startIdx < 0) || (startIdx >= str.length()))
+		} else if ((startIdx < 0) || (startIdx > endIdx || (endIdx > str.length())))
 		{
 			throw new StringIndexOutOfBoundsException("Invalid inputs for start index and end index.");
 		}
-
-		int endIdx = Math.min(startIdx + len, str.length());
 
 		return str.substring(startIdx, endIdx);
 	}
